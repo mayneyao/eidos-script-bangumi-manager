@@ -1,5 +1,5 @@
 {
-  "name": "eidos-script-template",
+  "name": "eidos-script-bangumi-manager",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,7 +8,7 @@
     "build": "tsc"
   },
   "devDependencies": {
-    "typescript": "^5.2.2",
-    "vite": "^5.0.0"
+    "@eidos.space/types": "^0.0.6",
+    "typescript": "^5.2.2"
   }
 }
