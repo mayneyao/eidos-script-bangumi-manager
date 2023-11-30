@@ -11,7 +11,6 @@ interface Table {
   // add your tables here
   bangumi: EidosTable<{
     title: string;
-    subtitle: string;
     cover: string;
     summary: string;
     media_id: string;
@@ -39,12 +38,11 @@ export default async function (_input: Input, context: Context) {
   const url = `https://bangumi-manager.gine.workers.dev/${context.env.BILIBILI_ID}`;
   const resp = await fetch(url);
   const data = await resp.json();
-  const table = eidos.currentSpace.table(tableId);
-  for (const item of data.result) {
-    await table.rows.create(
+
+  for (const item of data) {
+    await eidos.currentSpace.table(tableId).rows.create(
       {
         [fieldMap.title]: item.title,
-        [fieldMap.subtitle]: item.subtitle,
         [fieldMap.cover]: item.cover,
         [fieldMap.summary]: item.evaluate,
         [fieldMap.media_id]: item.media_id,

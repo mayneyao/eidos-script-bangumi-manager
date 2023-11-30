@@ -8,11 +8,9 @@ export default async function (_input, context) {
     const url = `https://bangumi-manager.gine.workers.dev/${context.env.BILIBILI_ID}`;
     const resp = await fetch(url);
     const data = await resp.json();
-    const table = eidos.currentSpace.table(tableId);
-    for (const item of data.result) {
-        await table.rows.create({
+    for (const item of data) {
+        await eidos.currentSpace.table(tableId).rows.create({
             [fieldMap.title]: item.title,
-            [fieldMap.subtitle]: item.subtitle,
             [fieldMap.cover]: item.cover,
             [fieldMap.summary]: item.evaluate,
             [fieldMap.media_id]: item.media_id,

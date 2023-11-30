@@ -2,7 +2,7 @@
     "id": "bangumi-manager",
     "name": "Bangumi Manager",
     "description": "Help you manage bangumi, import data from bilibili and other platform",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "main": "src/main.js",
     "inputJSONSchema": {
         "type": "object",
